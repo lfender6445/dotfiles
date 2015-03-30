@@ -37,5 +37,8 @@ brew cask install mamp
 brew cask install growl-notify
 brew cask install plex-media-server
 brew cask install teleport
+# brew cask install vlc
+brew cask install spectacle
+brew cask install gitx
 
 exit 0

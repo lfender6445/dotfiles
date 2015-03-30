@@ -39,6 +39,10 @@ do
 done
 
 
+# DISABLE AUTOCORRECT
+# consider http://unix.stackexchange.com/questions/36061/zsh-more-intelligent-autocorrection
+unsetopt correct
+
 unset config_files
 
 # set theme
