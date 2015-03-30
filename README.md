@@ -6,6 +6,10 @@ supports
   - chruby
   - ruby-installer
 
+# TODO:
+
+  - preserve alfred workflows
+
 ## install
 
 `bootstrap`
