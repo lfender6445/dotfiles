@@ -42,3 +42,4 @@ done
 unset config_files
 
 # set theme
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
