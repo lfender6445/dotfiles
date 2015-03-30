@@ -1,5 +1,6 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+# ZSH_THEME="luke_fender"
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -38,4 +39,7 @@ do
   source $file
 done
 
+
 unset config_files
+
+# set theme

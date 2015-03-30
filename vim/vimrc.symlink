@@ -1,4 +1,191 @@
-syntax on
+"Vim Settings -----------------------------------------------------------
+let mapleader="\<Space>"
+set noswapfile
+" Enable 256 colorschemes in iTerm
+let &t_Co=256
+" Set tabs
+set expandtab
+set smartindent
+set shiftwidth=2
+set softtabstop=2
+set hlsearch
+set number "required for vim numbers plugin
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" set clipboard=unnamed " allow copy and paste from system
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
+" Detect file changes
+au FileChangedShell * echo "Warning: File changed on disk"
+
+" Prevent silly window
+map q: :q
+
+" Watch vimrc for changes and autoload those changes
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+autocmd BufWritePre * :%s/\s\+$//e " Prevent trailing space on save
+
+" Line Highlight settings per style inteded by colorshcheme
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+  autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+set cursorline
+set list listchars=trail:.,extends:>
+
+" Package Manager Plugin Settings --------------------------------------------------------
+" https://github.com/junegunn/vim-plug/
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+" Plug 'junegunn/seoul256.vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'joeytwiddle/sexy_scroller.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/syntastic'
+Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'Valloric/YouCompleteMe'
+" Snipmate + dependencies
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'garbas/vim-snipmate'
+" ----- end snipmate
+" Plug 'Valloric/YouCompleteMe'
+Plug 'terryma/vim-multiple-cursors'
+" Plug 'tpope/vim-commentard'
+Plug 'myusuf3/numbers.vim'
+Plug 'tpope/vim-rsi'
+" Plug 'vim-scripts/gitignore'
+" Plug 'mmozuras/vim-github-commend'
+" Plug 'bling/vim-airline'
+Plug 'tpope/vim-endwise'
+Plug 'Raimondi/delimitMate'
+Plug 'docunext/closetag.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+
+" Color Scheme
+Plug 'lsdr/monokai'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'tpope/vim-vividchalk'
+Plug 'slim-template/vim-slim'
+Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'elzr/vim-json'
+Plug 'vim-ruby/vim-ruby'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using git URL
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+
+" Unmanaged plugin (manually installed and updated)
+" Plug '~/my-prototype-plugin'
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+"
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
+
+" Luke Fender - Custom Changes
+" Nerd Tree -----
+silent! nmap <F1> :NERDTreeToggle<CR>
+silent! map  <F2> :NERDTreeFind<CR>
+" Ack -----
+nnoremap \ :Ag<SPACE>
+nnoremap <Leader>f :Ag<SPACE>
+nnoremap \f :Ag<SPACE>-i<SPACE>
+" CTRL P---
+nnoremap <Leader>o :CtrlP<CR>
+" Custom Leader
+noremap <Leader>w :w<CR>
+noremap <Leader>s :w<CR>
+noremap <Leader>q :tabc<CR>
+noremap <Leader>z :qa<CR>
+noremap <Leader>t :tabnew<CR>:NERDTreeToggle<CR>
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+map  <Leader><Left> :wincmd h<CR>
+map  <Leader><Right> :wincmd l<CR>
+map  <Leader><Up>   :wincmd k<CR>
+map  <Leader><Down> :wincmd j<CR>
+map  <Leader><Down> :wincmd j<CR>
+" Tab Navigation
+" nnoremap <Leader>1 1gt
+
+nmap <Leader>1 1gt
+nmap <Leader>2 2gt<CR>
+nmap <Leader>3 3gt<CR>
+nmap <Leader>4 4gt<CR>
+nmap <Leader>5 5gt<CR>
+nmap <Leader>6 6gt<CR>
+nmap <Leader>7 7gt<CR>
+nmap <Leader>8 8gt<CR>
+nmap <Leader>9 9gt<CR>
+
+nmap <C-N><C-N> :set invnumber<CR>
+nnoremap <F4> :NumbersToggle<CR>
+nnoremap <F5> :NumbersOnOff<CR>
+
+" let g:NERDTreeMapActivateNode="<F3>"
+" let g:NERDTreeMapPreview="<F4>"
+noremap <F3> :Autoformat<CR><CR>
+
+call plug#end()
+
+" Ctrl P settings -------------------------
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
+
+" Sexy Scroller
+let g:SexyScroller_ScrollTime = 10
+
+" Visual settings
+set nu
+
+" Resources
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+
+" colorscheme molokai
+colorscheme jellybeans
+
+" Start NERDTree with every vim session plus new tab
+autocmd VimEnter * NERDTree
+" autocmd BufEnter * CtrlP
+" Go to previous (last accessed) window.
+autocmd VimEnter * wincmd p
+let g:NERDTreeWinPos = "right"
+set nolist
+set tabstop=2
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd VimEnter * NERDTreeClose
+let g:pymode_rope_complete_on_dot = 0
+nmap gu :!w3m ^R^A<CR>
+
