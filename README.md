@@ -1,8 +1,14 @@
 ## dotfiles
 
+supports
+
+  - brew  + cask
+  - chruby
+  - ruby-installer
+
 ## install
 
-forked from https://github.com/holman/dotfiles
+`bootstrap`
 
 # info
 
