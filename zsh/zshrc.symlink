@@ -45,5 +45,7 @@ unsetopt correct
 
 unset config_files
 
-# set theme
+# support ^A
+set -o emacs
+
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
