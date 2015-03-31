@@ -50,4 +50,6 @@ set -o emacs
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
-eval "$(/Users/lfender/source/idg/bin/idg init -)"
+if [ -f /Users/lfender/source/idg/bin/idg ]; then
+  eval "$(/Users/lfender/source/idg/bin/idg init -)"
+fi
