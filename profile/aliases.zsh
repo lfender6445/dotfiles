@@ -42,10 +42,12 @@ alias sf='find . -type f|grep'
 alias aliases="vim ~/dotfiles/.z_aliases"
 alias readm="less README.md"
 alias readme="less README.md"
+
 alias src="source ~/.zshrc"
 alias zshrc="vim ~/.zshrc"
+alias vimrc='vim ~/.vimrc'
+
 alias ls="ls -a"
-alias vimrc='vim ~/dotfiles/.vimrc'
 alias mleak='tail -f /var/log/system.log'
 alias rubocop='rubocop --format simple'
 alias b="bundle"
@@ -55,8 +57,8 @@ alias bl="bundle list"
 alias pgs="pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start"
 alias pgst="pg_ctl -D /usr/local/var/postgres/ stop -m 'fast'"
 alias default_shell='chsh -s /bin/zsh'
+
 alias commiters="git shortlog -sn"
 alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias lock="less Gemfile.lock"
-alias csu="757080295|pbcoby"

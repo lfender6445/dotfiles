@@ -84,6 +84,7 @@ Plug 'godlygeek/tabular'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elzr/vim-json'
 Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/applescript.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
