@@ -50,11 +50,7 @@ set -o emacs
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
-<<<<<<< HEAD
 if [ -f /Users/lfender/source/idg/bin/idg ]; then
   eval "$(/Users/lfender/source/idg/bin/idg init -)"
 fi
-=======
-eval "$(/Users/lfender/source/idg/bin/idg init -)"
->>>>>>> add bluetooth script
 source ~/.nvm/nvm.sh
