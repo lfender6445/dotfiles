@@ -132,3 +132,5 @@
  enabled = 1
 [url "git://"]
 	insteadOf = https://
+[url "https://"]
+	insteadOf = git://
