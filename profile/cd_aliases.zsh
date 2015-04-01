@@ -29,4 +29,5 @@ alias cdne="cd ~/source/newhomeguide"
 alias cdhf="cd ~/source/hf/hikefinder"
 alias cdea="cd ~/source/hf/everest_api"
 alias cdgbr='cd ~/source/generator-bower-rjs'
+alias cdot='cd ~/.dotfiles'
 
