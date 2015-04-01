@@ -3,7 +3,8 @@ property thePane : "com.apple.preferences.bluetooth"
 tell application "Terminal"
   activate
   my execCmd("ssh ${TARGET_2}", 1)
-  my execCmd("${TARGET_2_P}", 5)
+  set pass to system attribute "TARGET_2_P"
+  my execCmd(pass, 5)
   my execCmd("osascript ~/.dotfiles/osx/bluetooth.scpt", 0)
   my toggleBluetooth()
 end tell
