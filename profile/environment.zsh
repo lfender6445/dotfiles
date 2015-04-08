@@ -7,6 +7,7 @@ if [[ -e /usr/local/opt/chruby/share ]]; then
 fi
 
 PATH=/usr/local/share/npm/bin:$PATH
+
 export NODE_PATH='/usr/local/lib/node_modules'
 
 # ulimit -n 65536
