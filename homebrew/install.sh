@@ -39,6 +39,8 @@ then
   brew cask install spectacle
   brew cask install gitx
   brew cask install vlc
+  # brew install pkg-config
+  # brew install cmake
 
   exit 0
 fi
