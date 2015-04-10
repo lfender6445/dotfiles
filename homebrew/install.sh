@@ -24,6 +24,7 @@ then
   brew install macvim
   brew install the_silver_searcher
   brew install influxdb
+  brew install tmate
 
   brew install caskroom/cask/brew-cask
   brew cask install transmission
