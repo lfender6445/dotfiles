@@ -39,7 +39,7 @@ alias hosts='sudo vim /etc/hosts'
 alias be="bundle exec"
 alias remove_all_example='find . -name "*.map" -exec rm -rf {} \;'
 alias sf='find . -type f|grep'
-alias aliases="vim ~/dotfiles/.z_aliases"
+alias aliases="vim ~/.dotfiles/profile/aliases.zsh"
 alias readm="less README.md"
 alias readme="less README.md"
 
