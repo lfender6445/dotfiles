@@ -25,6 +25,9 @@ then
   brew install the_silver_searcher
   brew install influxdb
   brew install tmate
+  # brew install pkg-config
+  # brew install cmake
+  # brew install influxdb
 
   brew install caskroom/cask/brew-cask
   brew cask install transmission
@@ -41,8 +44,6 @@ then
   brew cask install spectacle
   brew cask install gitx
   brew cask install vlc
-  # brew install pkg-config
-  # brew install cmake
 
   exit 0
 fi

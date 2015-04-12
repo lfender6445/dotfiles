@@ -33,4 +33,6 @@ alias cdgbr='cd ~/source/generator-bower-rjs'
 alias cdot='cd ~/.dotfiles'
 alias cdd='cd ~/.dotfiles'
 alias cdl='cd ~/Downloads'
+alias cdgrf='cd ~/source/go/src/github.com/grafana/grafana'
+alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
 
