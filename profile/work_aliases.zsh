@@ -24,5 +24,7 @@ alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias lock="less Gemfile.lock"
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias @deploy="ssh bot"
+alias gcbw="gulp clean; gulp build; gulp watch"
+alias bomb="rm -rf vendor/javascripts;bower install;gcbw"
 
 
