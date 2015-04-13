@@ -132,3 +132,5 @@
  enabled = 1
 [credential]
 	helper = osxkeychain
+[url "git://"]
+	insteadOf = https://
