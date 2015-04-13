@@ -65,3 +65,4 @@ alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias lock="less Gemfile.lock"
 
 alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
+alias start_postgres='postgres -D /usr/local/var/postgres'
