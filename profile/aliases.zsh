@@ -63,3 +63,5 @@ alias commiters="git shortlog -sn"
 alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias lock="less Gemfile.lock"
+
+alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
