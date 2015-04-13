@@ -54,3 +54,6 @@ if [ -f /Users/lfender/source/idg/bin/idg ]; then
   eval "$(/Users/lfender/source/idg/bin/idg init -)"
 fi
 source ~/.nvm/nvm.sh
+
+# interactive comments in shell
+set -k

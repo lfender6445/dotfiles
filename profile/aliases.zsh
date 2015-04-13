@@ -66,3 +66,6 @@ alias lock="less Gemfile.lock"
 
 alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
 alias start_postgres='postgres -D /usr/local/var/postgres'
+
+alias gemini='gem env; gem env gemdir'
+alias gemm='bundle show'
