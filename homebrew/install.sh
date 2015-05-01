@@ -28,6 +28,7 @@ then
   brew install pkg-config
   brew install cmake
   brew install influxdb
+  brew install watch
   # http://developer.android.com/sdk/installing/index.html?pkg=studio
 
   brew install caskroom/cask/brew-cask
