@@ -57,3 +57,10 @@ source ~/.nvm/nvm.sh
 
 # interactive comments in shell
 set -k
+
+ANDROID_HOME=/usr/local/opt/android-sdk
+
+# if [ -d "<path-to-sdk>/platform-tools" ] ; then
+#     export PATH="<path-to-sdk>/platform-tools:$PATH"
+#   fi
+# fi

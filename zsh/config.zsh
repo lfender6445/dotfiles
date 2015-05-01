@@ -46,3 +46,6 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
+
+HISTSIZE=1200  # lines of history to maintain memory
+SAVEHIST=1000  # lines of history to maintain in history file.

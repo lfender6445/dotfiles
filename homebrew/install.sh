@@ -25,9 +25,10 @@ then
   brew install the_silver_searcher
   brew install influxdb
   brew install tmate
-  # brew install pkg-config
-  # brew install cmake
-  # brew install influxdb
+  brew install pkg-config
+  brew install cmake
+  brew install influxdb
+  # http://developer.android.com/sdk/installing/index.html?pkg=studio
 
   brew install caskroom/cask/brew-cask
   brew cask install transmission
