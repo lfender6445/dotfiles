@@ -28,6 +28,7 @@ then
   brew install pkg-config
   brew install cmake
   brew install influxdb
+  brew install awscli
   brew install watch
   # http://developer.android.com/sdk/installing/index.html?pkg=studio
 
@@ -50,3 +51,13 @@ then
   exit 0
 fi
 
+# amazon ec2
+#
+## downwlo epel
+# rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
+## not sure this is necesssary
+# sudo yum install yum-utils
+## enable red hat extras repo
+# sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+# sudo yum update
+# sudo yum install docker

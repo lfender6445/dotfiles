@@ -69,3 +69,6 @@ alias start_postgres='postgres -D /usr/local/var/postgres'
 
 alias gemini='gem env; gem env gemdir'
 alias gemm='bundle show'
+alias sshconfig='vim ~/.ssh/config'
+
+alias history='history 25'
