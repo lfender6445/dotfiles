@@ -30,6 +30,8 @@ then
   brew install influxdb
   brew install awscli
   brew install watch
+  brew install docker
+  brew install boot2docker
   # http://developer.android.com/sdk/installing/index.html?pkg=studio
 
   brew install caskroom/cask/brew-cask
@@ -61,3 +63,4 @@ fi
 # sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
 # sudo yum update
 # sudo yum install docker
+# sudo yum install netstat
