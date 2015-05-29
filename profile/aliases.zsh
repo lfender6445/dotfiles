@@ -31,6 +31,7 @@ alias gpo="git push origin"
 alias gphm="git push heroku master"
 alias glast="git diff HEAD~1 --stat"
 alias ip='ifconfig|grep inet|grep broadcast'
+alias gmt="git mergetool -t opendiff"
 
 # misc
 alias jbstart='/usr/local/Cellar/jboss-as/7.1.1.Final/libexec/bin/standalone.sh'
