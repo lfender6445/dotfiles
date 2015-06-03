@@ -30,6 +30,7 @@ alias gcf="git clean -f"
 alias gpo="git push origin"
 alias gphm="git push heroku master"
 alias glast="git diff HEAD~1 --stat"
+alias gls="gl --name-status"
 alias ip='ifconfig|grep inet|grep broadcast'
 alias gmt="git mergetool -t opendiff"
 

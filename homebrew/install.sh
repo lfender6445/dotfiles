@@ -33,6 +33,9 @@ then
   brew install docker
   brew install boot2docker
   # http://developer.android.com/sdk/installing/index.html?pkg=studio
+  # curl -sL https://asciinema.org/install | sh
+  brew install fpp
+  brew install asciinema
 
   brew install caskroom/cask/brew-cask
   brew cask install transmission
