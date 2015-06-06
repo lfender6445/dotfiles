@@ -28,11 +28,14 @@ alias gmd="git merge dev"
 alias gmm="git merge master"
 alias gcf="git clean -f"
 alias gpo="git push origin"
+alias gpf="git push fork"
+alias gpt="git push --tags"
 alias gphm="git push heroku master"
 alias glast="git diff HEAD~1 --stat"
 alias gls="gl --name-status"
 alias ip='ifconfig|grep inet|grep broadcast'
 alias gmt="git mergetool -t opendiff"
+alias gmt="git merge"
 
 # misc
 alias jbstart='/usr/local/Cellar/jboss-as/7.1.1.Final/libexec/bin/standalone.sh'
