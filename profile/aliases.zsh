@@ -36,6 +36,7 @@ alias gls="gl --name-status"
 alias ip='ifconfig|grep inet|grep broadcast'
 alias gmt="git mergetool -t opendiff"
 alias gmt="git merge"
+alias gsh="git show HEAD"
 
 # misc
 alias jbstart='/usr/local/Cellar/jboss-as/7.1.1.Final/libexec/bin/standalone.sh'

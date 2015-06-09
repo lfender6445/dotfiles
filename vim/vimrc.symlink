@@ -50,6 +50,7 @@ Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'nono/vim-handlebars'
 " Plug 'Valloric/YouCompleteMe'
 " Snipmate + dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
