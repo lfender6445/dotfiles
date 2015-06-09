@@ -35,7 +35,6 @@ alias glast="git diff HEAD~1 --stat"
 alias gls="gl --name-status"
 alias ip='ifconfig|grep inet|grep broadcast'
 alias gmt="git mergetool -t opendiff"
-alias gmt="git merge"
 alias gsh="git show HEAD"
 
 # misc
