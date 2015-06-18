@@ -78,3 +78,4 @@ alias gemm='bundle show'
 alias sshconfig='vim ~/.ssh/config'
 
 alias history='history 25'
+alias pgconf="vim /var/lib/pgsql/9.4/data/pg_hba.conf"
