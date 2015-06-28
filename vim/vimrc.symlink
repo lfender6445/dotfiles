@@ -3,11 +3,13 @@ let mapleader="\<Space>"
 set noswapfile
 " Enable 256 colorschemes in iTerm
 let &t_Co=256
+
 " Set tabs
 set expandtab
 set smartindent
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
 set hlsearch
 set number "required for vim numbers plugin
 
@@ -18,7 +20,6 @@ vmap <C-c> :w !pbcopy<CR><CR>
 " Detect file changes
 au FileChangedShell * echo "Warning: File changed on disk"
 
-" Prevent silly window
 map q: :q
 
 " Watch vimrc for changes and autoload those changes
@@ -37,6 +38,8 @@ augroup END
 set cursorline
 set list listchars=trail:.,extends:>
 
+set nolist
+
 " Package Manager Plugin Settings --------------------------------------------------------
 " https://github.com/junegunn/vim-plug/
 call plug#begin('~/.vim/plugged')
@@ -44,7 +47,10 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 " Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
+
 Plug 'joeytwiddle/sexy_scroller.vim'
+let g:SexyScroller_ScrollTime = 5
+
 Plug 'junegunn/vim-easy-align'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
@@ -89,6 +95,8 @@ Plug 'vim-scripts/applescript.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+let g:NERDTreeWinPos = "right"
+
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using git URL
@@ -151,21 +159,19 @@ nmap <Leader>8 8gt<CR>
 nmap <Leader>9 9gt<CR>
 
 nmap <C-N><C-N> :set invnumber<CR>
+
+noremap  <F3> :Autoformat<CR><CR>
 nnoremap <F4> :NumbersToggle<CR>
 nnoremap <F5> :NumbersOnOff<CR>
 
 " let g:NERDTreeMapActivateNode="<F3>"
 " let g:NERDTreeMapPreview="<F4>"
-noremap <F3> :Autoformat<CR><CR>
 
 call plug#end()
 
 " Ctrl P settings -------------------------
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_use_caching = 0
-
-" Sexy Scroller
-let g:SexyScroller_ScrollTime = 10
 
 " Visual settings
 set nu
@@ -181,13 +187,11 @@ autocmd VimEnter * NERDTree
 " autocmd BufEnter * CtrlP
 " Go to previous (last accessed) window.
 autocmd VimEnter * wincmd p
-let g:NERDTreeWinPos = "right"
-set nolist
-set tabstop=2
+
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd VimEnter * NERDTreeClose
+
 let g:pymode_rope_complete_on_dot = 0
-nmap gu :!w3m ^R^A<CR>
 
