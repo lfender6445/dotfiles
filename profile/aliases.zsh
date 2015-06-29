@@ -79,3 +79,6 @@ alias sshconfig='vim ~/.ssh/config'
 
 alias history='history 25'
 alias pgconf="vim /var/lib/pgsql/9.4/data/pg_hba.conf"
+# alias history='history 25'
+alias active="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
