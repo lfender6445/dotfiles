@@ -1,6 +1,8 @@
 [user]
  email = lfender6445@gmail.com
  name = Luke Fender
+ user = lfender6445
+
 [alias]
   # short aliases
   https = config --global url."https://".insteadOf git://

@@ -10,17 +10,14 @@ set smartindent
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set hlsearch
 set number "required for vim numbers plugin
+set paste
 
-" set clipboard=unnamed " allow copy and paste from system
+set clipboard=unnamed " allow visual copy from vim to clipboardand paste from system
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
-" Detect file changes
-au FileChangedShell * echo "Warning: File changed on disk"
-
-map q: :q
+au FileChangedShell * echo "Warning: File changed on disk" " Detect file changes
 
 " Watch vimrc for changes and autoload those changes
 augroup myvimrc
@@ -28,50 +25,55 @@ augroup myvimrc
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
-autocmd BufWritePre * :%s/\s\+$//e " Prevent trailing space on save
+" search forwards and backwards with n and N
+set incsearch " begin searching as you type
+set hlsearch " higlight search lines
+" hi CursorLineNR cterm=bold
 
 " Line Highlight settings per style inteded by colorshcheme
-hi CursorLineNR cterm=bold
 augroup CLNRSet
   autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
-set cursorline
-set list listchars=trail:.,extends:>
 
-set nolist
+set cursorline " set visual indicator for line at cursor level
+
+set list listchars=trail:.,extends:> " highlight unwanted spaces
+autocmd BufWritePre * :%s/\s\+$//e " Prevent trailing space on save
 
 " Package Manager Plugin Settings --------------------------------------------------------
 " https://github.com/junegunn/vim-plug/
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-" Plug 'junegunn/seoul256.vim'
-Plug 'Chiel92/vim-autoformat'
-
 Plug 'joeytwiddle/sexy_scroller.vim'
-let g:SexyScroller_ScrollTime = 5
+let g:SexyScroller_ScrollTime = 20
 
 Plug 'junegunn/vim-easy-align'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/syntastic'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'nono/vim-handlebars'
-" Plug 'Valloric/YouCompleteMe'
-" Snipmate + dependencies
+Plug 'Valloric/YouCompleteMe'
+
+" snipmate + dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'garbas/vim-snipmate'
 " ----- end snipmate
-" Plug 'Valloric/YouCompleteMe'
-Plug 'terryma/vim-multiple-cursors'
-" Plug 'tpope/vim-commentard'
+
+Plug 'terryma/vim-multiple-cursors' " multiselect with <C-n>
+" -- numbers plugin
 Plug 'myusuf3/numbers.vim'
-Plug 'tpope/vim-rsi'
-" Plug 'vim-scripts/gitignore'
-" Plug 'mmozuras/vim-github-commend'
+" nmap <C-N><C-N> :set invnumber<CR>
+" nnoremap <Leader> :NumbersOnOff<CR>
+nnoremap <F4> :NumbersToggle<CR>
+nnoremap <F5> :NumbersOnOff<CR>
+" ---- end numbers
+
+Plug 'mmozuras/vim-github-comment'
+Plug 'mattn/webapi-vim'
+let g:github_user = 'lfender6445'
+
 " Plug 'bling/vim-airline'
 Plug 'tpope/vim-endwise'
 Plug 'Raimondi/delimitMate'
@@ -80,17 +82,24 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 
-" Color Scheme
+" --- syntax
+Plug 'scrooloose/syntastic' " check for syntax errors
+Plug 'nono/vim-handlebars'
+Plug 'slim-template/vim-slim'
+Plug 'kchmck/vim-coffee-script'
+
+" --- color scheme
 Plug 'lsdr/monokai'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-vividchalk'
-Plug 'slim-template/vim-slim'
-Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
-Plug 'kchmck/vim-coffee-script'
+
 Plug 'elzr/vim-json'
 Plug 'vim-ruby/vim-ruby'
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
 Plug 'vim-scripts/applescript.vim'
 
 " On-demand loading
@@ -108,6 +117,16 @@ Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
+
+" autoformat depends on following libs
+" gem install ruby-beautify
+" sudo apt-get install tidy
+" gem install sass
+" npm install js-beautify
+" npm install -g js-beautify
+Plug 'Chiel92/vim-autoformat'
+noremap  <F3> :Autoformat<CR><CR>
+
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
@@ -117,10 +136,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
 
-" Luke Fender - Custom Changes
-" Nerd Tree -----
-silent! nmap <F1> :NERDTreeToggle<CR>
-silent! map  <F2> :NERDTreeFind<CR>
 " Ack -----
 nnoremap \ :Ag<SPACE>
 nnoremap <Leader>f :Ag<SPACE>
@@ -158,11 +173,6 @@ nmap <Leader>7 7gt<CR>
 nmap <Leader>8 8gt<CR>
 nmap <Leader>9 9gt<CR>
 
-nmap <C-N><C-N> :set invnumber<CR>
-
-noremap  <F3> :Autoformat<CR><CR>
-nnoremap <F4> :NumbersToggle<CR>
-nnoremap <F5> :NumbersOnOff<CR>
 
 " let g:NERDTreeMapActivateNode="<F3>"
 " let g:NERDTreeMapPreview="<F4>"
@@ -184,14 +194,15 @@ colorscheme jellybeans
 
 " Start NERDTree with every vim session plus new tab
 autocmd VimEnter * NERDTree
-" autocmd BufEnter * CtrlP
-" Go to previous (last accessed) window.
-autocmd VimEnter * wincmd p
-
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd VimEnter * NERDTreeClose
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * wincmd p " Go to previous (last accessed) window.
+" Luke Fender - Custom Changes
+" Nerd Tree -----
+silent! nmap <F1> :NERDTreeToggle<CR>
+silent! map  <F2> :NERDTreeFind<CR>
+" autocmd VimEnter * NERDTreeClose
 
 let g:pymode_rope_complete_on_dot = 0
 
+" hi Search cterm=NONE ctermbg=159
