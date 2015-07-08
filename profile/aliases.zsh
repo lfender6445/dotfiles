@@ -5,6 +5,7 @@ alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim"
 # ls -l - get group + user permission for dirs + files
 # df -h  get disk space
 # git
+alias gtrack='git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)'
 alias gg='git show --pretty="format:" --name-only '
 alias l='gl'
 alias g="git"

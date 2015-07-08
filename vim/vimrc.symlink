@@ -51,7 +51,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " snipmate + dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -147,6 +147,8 @@ noremap <Leader>w :w<CR>
 noremap <Leader>s :w<CR>
 noremap <Leader>q :tabc<CR>
 noremap <Leader>z :qa<CR>
+noremap <Leader>e :edit!<CR>
+noremap <Leader>r :edit!<CR>
 noremap <Leader>t :tabnew<CR>:NERDTreeToggle<CR>
 
 vmap <Leader>y "+y
