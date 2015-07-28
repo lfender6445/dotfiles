@@ -82,4 +82,4 @@ alias history='history 25'
 alias pgconf="vim /var/lib/pgsql/9.4/data/pg_hba.conf"
 # alias history='history 25'
 alias active="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
-
+alias elogin="curl 'http://170.140.98.93/cgi-bin/login' -H 'Pragma: no-cache' -H 'Origin: http://captive.web.emory.edu' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.8' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Cache-Control: no-cache' -H 'Referer: http://captive.web.emory.edu/hcp.php?cmd=login&switchip=170.140.98.93&mac=34:36:3b:cc:f0:d2&ip=172.24.68.194&essid=EHC%20Guest&url=http%3A%2F%2Fwww%2Ereddit%2Ecom%2F' -H 'Connection: keep-alive' --data 'email=nadamas%40gmail.com&Login=Log+In' --compressed"

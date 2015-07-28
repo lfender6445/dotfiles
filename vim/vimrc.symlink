@@ -1,6 +1,7 @@
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 " misc
 let mapleader="\<Space>"
+set wrap
 set nu
 set noswapfile
 let &t_Co=256 " enable 256 colorschemes in iTerm
