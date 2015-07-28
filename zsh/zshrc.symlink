@@ -64,3 +64,7 @@ ANDROID_HOME=/usr/local/opt/android-sdk
 #     export PATH="<path-to-sdk>/platform-tools:$PATH"
 #   fi
 # fi
+ mkdcd () {
+     mkdir -p "$1" && cd "$1"
+ }
+
