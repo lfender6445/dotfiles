@@ -124,7 +124,7 @@
   autocrlf = input
   ignorecase = false
   whitespace = cr-at-eol
-  editor = vim
+  editor = /Applications/MacVim.app/Contents/MacOS/Vim
   pager = less -x4
 [push]
 	default = current
@@ -143,3 +143,6 @@
 	required = true
 [url "https://"]
 	insteadOf = git://
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

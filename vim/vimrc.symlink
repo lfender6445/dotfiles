@@ -54,6 +54,7 @@ autocmd BufWritePre * :%s/\s\+$//e " Prevent trailing space on save
 " https://github.com/junegunn/vim-plug/
 call plug#begin('~/.vim/plugged')
 
+
 Plug 'joeytwiddle/sexy_scroller.vim'
 let g:SexyScroller_ScrollTime = 20
 
@@ -80,10 +81,14 @@ nnoremap <F4> :NumbersToggle<CR>
 nnoremap <F5> :NumbersOnOff<CR>
 " ---- end numbers
 
-Plug 'mmozuras/vim-github-comment'
-" Plug 'mattn/webapi-vim'
+" 'quote' a word
+nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
+" double "quote" a word
+nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
+" remove quotes from a word
+nnoremap wq :silent! normal mpeld bhd `ph<CR>
+" Plug 'mmozuras/vim-github-comment'
 let g:github_user = 'lfender6445'
-
 " Plug 'bling/vim-airline'
 Plug 'tpope/vim-endwise'
 Plug 'Raimondi/delimitMate'
@@ -97,6 +102,7 @@ Plug 'scrooloose/syntastic' " check for syntax errors
 Plug 'nono/vim-handlebars'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'https://github.com/rorymckinley/vim-rubyhash.git'
 
 " --- color scheme
 Plug 'lsdr/monokai'
@@ -177,9 +183,10 @@ map  <Leader><Down> :wincmd j<CR>
 
 nmap == <C-w>=
 " horizontal orientation
-nmap <Leader>h <C-w>t<C-w>K
+nmap <Leader>h <C-w>t<C-w>K :NERDTreeClose<CR>:NERDTree<CR>
 " vertical orientation
-nmap <Leader>v <C-w>t<C-w>H
+nmap <Leader>v <C-w>t<C-w>H :NERDTreeClose<CR>:NERDTree<CR>
+
 
 nmap <Leader>1 1gt
 nmap <Leader>2 2gt<CR>
@@ -223,4 +230,3 @@ silent! map  <F2> :NERDTreeFind<CR>
 
 let g:pymode_rope_complete_on_dot = 0
 
-" hi Search cterm=NONE ctermbg=159
