@@ -53,7 +53,9 @@ autocmd BufWritePre * :%s/\s\+$//e " Prevent trailing space on save
 " Package Manager Plugin Settings --------------------------------------------------------
 " https://github.com/junegunn/vim-plug/
 call plug#begin('~/.vim/plugged')
+" let g:plug_url_format='https://git::@github.com/%s.git'
 
+" let g:plug_url_format='git::@github.com/%s.git'
 
 Plug 'joeytwiddle/sexy_scroller.vim'
 let g:SexyScroller_ScrollTime = 20
@@ -101,6 +103,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic' " check for syntax errors
 Plug 'nono/vim-handlebars'
 Plug 'slim-template/vim-slim'
+Plug 'digitaltoad/vim-jade'
 Plug 'kchmck/vim-coffee-script'
 Plug 'https://github.com/rorymckinley/vim-rubyhash.git'
 
@@ -131,7 +134,7 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 
 " autoformat depends on following libs
@@ -229,4 +232,3 @@ silent! map  <F2> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTreeClose
 
 let g:pymode_rope_complete_on_dot = 0
-
