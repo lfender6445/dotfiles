@@ -26,4 +26,5 @@ alias @deploy="ssh bot"
 alias gcbw="gulp clean; gulp build; gulp watch"
 alias bomb="rm -rf vendor/javascripts;bower install;gcbw"
 
-
+alias cdo="cd ~/source/onesearch"
+alias cdon="cd ~/source/onesearch.js"

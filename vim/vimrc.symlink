@@ -53,9 +53,8 @@ autocmd BufWritePre * :%s/\s\+$//e " Prevent trailing space on save
 " Package Manager Plugin Settings --------------------------------------------------------
 " https://github.com/junegunn/vim-plug/
 call plug#begin('~/.vim/plugged')
-" let g:plug_url_format='https://git::@github.com/%s.git'
 
-" let g:plug_url_format='git::@github.com/%s.git'
+let g:plug_url_format = 'git@github.com:%s.git'
 
 Plug 'joeytwiddle/sexy_scroller.vim'
 let g:SexyScroller_ScrollTime = 20
