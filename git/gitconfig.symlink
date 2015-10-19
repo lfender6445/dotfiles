@@ -29,6 +29,7 @@
   unstage = reset HEAD
   gca = git clean -f
   undo-commit = reset --soft HEAD^
+  t = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags
 
   # interactive rebase
   ir = !sh -c 'git rebase -i origin/${1-master}' -
