@@ -72,6 +72,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'garbas/vim-snipmate'
 " ----- end snipmate
+Plug 'ngmy/vim-rubocop'
 
 Plug 'terryma/vim-multiple-cursors' " multiselect with <C-n>
 " -- numbers plugin
@@ -97,6 +98,8 @@ Plug 'docunext/closetag.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'pld-linux/vim-syntax-vcl'
 
 " --- syntax
 Plug 'scrooloose/syntastic' " check for syntax errors
@@ -231,3 +234,6 @@ silent! map  <F2> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTreeClose
 
 let g:pymode_rope_complete_on_dot = 0
+let g:vimrubocop_config = '~/source/style-guides/ruby/.rubocop.yml'
+nmap <Leader>r :echo @%\|RuboCop -a<CR>
+au BufRead,BufNewFile Guardfile setfiletype ruby

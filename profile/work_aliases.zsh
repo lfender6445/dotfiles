@@ -22,9 +22,10 @@ alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasti
 alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias lock="less Gemfile.lock"
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-alias @deploy="ssh bot"
+alias @deploy='ssh -t bot "sudo su - deploy"'
 alias gcbw="gulp clean; gulp build; gulp watch"
 alias bomb="rm -rf vendor/javascripts;bower install;gcbw"
 
 alias cdo="cd ~/source/onesearch"
 alias cdon="cd ~/source/onesearch.js"
+alias cddt='cd ~/source/drawbridge_tester'
