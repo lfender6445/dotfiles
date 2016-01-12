@@ -56,6 +56,15 @@ ruby_version() {
   then
     echo "$(rvm-prompt | awk '{print $1}')"
   fi
+
+  if (( $+commands[rvm-prompt] ))
+  then
+    echo "$(rvm-prompt | awk '{print $1}')"
+  fi
+  if (type chruby &> /dev/null); then
+    prompt=$(chruby|grep '*'|cut -d '-' -f2)
+    echo 'rb'$prompt
+  fi;
 }
 
 rb_prompt() {
@@ -68,7 +77,7 @@ rb_prompt() {
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  echo "%{$fg_bold[cyan]%}%1/%{$reset_color%}"
 }
 
 export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '

@@ -1,1 +1,1 @@
-eval "$(/Users/lfender/source/idg/bin/idg init -)"
+skip_global_compinit=1

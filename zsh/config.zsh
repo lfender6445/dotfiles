@@ -11,9 +11,6 @@ fpath=($ZSH/functions $fpath)
 
 autoload -U $ZSH/functions/*(:t)
 
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
@@ -47,5 +44,6 @@ bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
+HISTFILE=~/.zsh_history
 HISTSIZE=1200  # lines of history to maintain memory
 SAVEHIST=1000  # lines of history to maintain in history file.
