@@ -1,0 +1,37 @@
+# git
+alias abort="git unstage;gca;gcf;git rebase --abort;"
+alias g="git"
+alias s="git status"
+alias gd="git diff"
+alias gb="git branch"
+alias gpr="git pull --rebase"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gcd="git co dev"
+alias gdc="git diff --cached"
+alias gc="git co "
+alias gcq="git co qa"
+alias gcm="git co master"
+alias gs="git stash"
+alias gsp="git stash pop"
+alias gca="git co ."
+alias gaa="git add ."
+alias gcn="git commit -m"
+alias gcam="git commit --amend"
+alias gmd="git merge dev"
+alias gmm="git merge master"
+alias gcf="git clean -f"
+alias gpo="git push origin"
+alias gpf="git push fork"
+alias gpt="git push --tags"
+alias gphm="git push heroku master"
+alias glast="git diff HEAD~1 --stat"
+alias gls="gl --name-status"
+alias ip='ifconfig|grep inet|grep broadcast'
+alias gmt="git mergetool -t opendiff"
+alias gsh="git show HEAD"
+# cd
+alias cds="cd ~/source"
+alias cdw="cd /var/www"
+alias cdn='cd /etc/nginx/nginx.conf'
+# system
+alias v='vim'
