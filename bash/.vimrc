@@ -55,6 +55,7 @@ let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vim-ruby/vim-ruby'
 
 " --- syntax
 Plug 'scrooloose/syntastic' " check for syntax errors
@@ -62,12 +63,6 @@ Plug 'nono/vim-handlebars'
 Plug 'slim-template/vim-slim'
 Plug 'digitaltoad/vim-jade'
 Plug 'kchmck/vim-coffee-script'
-Plug 'https://github.com/rorymckinley/vim-rubyhash.git'
-
-" --- color scheme
-Plug 'lsdr/monokai'
-Plug 'elzr/vim-json'
-Plug 'vim-ruby/vim-ruby'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 let g:NERDTreeWinPos = "right"
@@ -139,8 +134,6 @@ set nu
 " Resources
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 
-" colorscheme molokai
-colorscheme jellybeans
 
 " Start NERDTree with every vim session plus new tab
 autocmd VimEnter * NERDTree
