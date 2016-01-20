@@ -7,7 +7,6 @@
   # short aliases
   https = config --global url."https://".insteadOf git://
   ssh = config --global url."git://".insteadOf https://
-  log = log --oneline --graph --decorate --all
   st = git status
   pr = git pull --rebase
   s = git stash
