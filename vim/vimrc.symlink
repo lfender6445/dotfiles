@@ -237,3 +237,5 @@ let g:pymode_rope_complete_on_dot = 0
 let g:vimrubocop_config = '~/source/style-guides/ruby/.rubocop.yml'
 nmap <Leader>r :echo @%\|RuboCop -a<CR>
 au BufRead,BufNewFile Guardfile setfiletype ruby
+" remove tab chars
+:set nolist

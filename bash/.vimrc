@@ -147,3 +147,4 @@ silent! map  <F2> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTreeClose
 
 let g:pymode_rope_complete_on_dot = 0
+:set nolist
