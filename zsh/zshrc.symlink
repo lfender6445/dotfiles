@@ -67,3 +67,5 @@ ANDROID_HOME=/usr/local/opt/android-sdk
  mkdcd () {
      mkdir -p "$1" && cd "$1"
  }
+
+source ~/.dotfiles/zsh/common-functions.zsh

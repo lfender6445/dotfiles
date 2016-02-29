@@ -8,6 +8,7 @@ alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim"
 alias gtrack='git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)'
 alias gg='git show --pretty="format:" --name-only '
 alias l='gl'
+alias cat='ccat'
 alias g="git"
 alias s="git status"
 alias gd="git diff"
