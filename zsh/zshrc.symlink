@@ -69,3 +69,4 @@ ANDROID_HOME=/usr/local/opt/android-sdk
  }
 
 source ~/.dotfiles/zsh/common-functions.zsh
+. /Users/lfender_mbp/torch/install/bin/torch-activate

@@ -10,7 +10,8 @@ PATH=/usr/local/share/npm/bin:$PATH
 
 export NODE_PATH='/usr/local/lib/node_modules'
 #export JAVA_HOME='/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home'
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home'
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/bin/java'
+
 
 # ulimit -n 65536
 # ulimit -u 2048
