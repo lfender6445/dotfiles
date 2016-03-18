@@ -119,7 +119,7 @@
   autocrlf = input
   ignorecase = false
   whitespace = cr-at-eol
-  editor = /Applications/MacVim.app/Contents/MacOS/Vim
+  editor = mvim -v
   pager = less -x4
 [push]
 	default = current

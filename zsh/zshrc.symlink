@@ -1,5 +1,5 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/source/dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/source
@@ -48,12 +48,12 @@ unset config_files
 # support ^A
 set -o emacs
 
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
 if [ -f /Users/lfender/source/idg/bin/idg ]; then
   eval "$(/Users/lfender/source/idg/bin/idg init -)"
+  if [ -f ~/.idg_profile ]; then
+    source ~/.idg_profile;
+  fi
 fi
-source ~/.nvm/nvm.sh
 
 # interactive comments in shell
 set -k
@@ -68,5 +68,6 @@ ANDROID_HOME=/usr/local/opt/android-sdk
      mkdir -p "$1" && cd "$1"
  }
 
-source ~/.dotfiles/zsh/common-functions.zsh
-. /Users/lfender_mbp/torch/install/bin/torch-activate
+# source ~/source/dotfiles/zsh/common-functions.zsh
+# . /Users/lfender_mbp/torch/install/bin/torch-activate
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

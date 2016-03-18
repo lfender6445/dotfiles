@@ -1,20 +1,8 @@
-## dotfiles
+# dotfiles
 
-supports
+`bootstrap` # install 
 
-  - brew  + cask
-  - chruby
-  - ruby-installer
-
-# TODO:
-
-  - preserve alfred workflows
-
-## install
-
-`bootstrap`
-
-# info
+## info
 
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
   available everywhere.

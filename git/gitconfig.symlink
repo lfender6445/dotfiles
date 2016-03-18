@@ -114,20 +114,20 @@
   peeps = !git log --pretty=format:"%Cblue%aN%Creset" --no-merges | sort | uniq -c | sort -rn
   mergers = !git log --pretty=format:"%Cred%aN%Creset" --merges | sort | uniq -c | sort -rn
 [color]
- ui = true
+	ui = true
 [core]
   autocrlf = input
   ignorecase = false
   whitespace = cr-at-eol
-  editor = /Applications/MacVim.app/Contents/MacOS/Vim
+  editor = /usr/local/bin/mvim -v
   pager = less -x4
 [push]
 	default = current
 [branch]
- autosetuprebase = always
+	autosetuprebase = always
 	autosetupmerge = always
 [rerere]
- enabled = 1
+	enabled = 1
 [credential]
 	helper = osxkeychain
 [url "git://"]

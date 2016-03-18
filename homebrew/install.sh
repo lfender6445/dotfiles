@@ -40,6 +40,7 @@ then
   brew cask install spectacle
   brew cask install gitx
   brew cask install vlc
+  brew cask install macvim
   brew cask install virtualbox
   exit 0
 fi
