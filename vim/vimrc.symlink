@@ -87,6 +87,7 @@ nnoremap <F5> :NumbersOnOff<CR>
 nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
 " double "quote" a word
 nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
+nnoremap qa :silent! normal mpea'<Esc>bi'<Esc>`pl
 " remove quotes from a word
 nnoremap wq :silent! normal mpeld bhd `ph<CR>
 " Plug 'mmozuras/vim-github-comment'
@@ -117,6 +118,11 @@ Plug 'tpope/vim-vividchalk'
 
 Plug 'elzr/vim-json'
 Plug 'vim-ruby/vim-ruby'
+Plug 'mxw/vim-jsx'
+Plug 'isRuslan/vim-es6'
+
+Plug 'maksimr/vim-jsbeautify'
+
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
@@ -231,6 +237,7 @@ autocmd VimEnter * wincmd p " Go to previous (last accessed) window.
 " Nerd Tree -----
 silent! nmap <F1> :NERDTreeToggle<CR>
 silent! map  <F2> :NERDTreeFind<CR>
+silent! nmap <F5> :SyntasticToggleMode<CR>
 " autocmd VimEnter * NERDTreeClose
 
 let g:pymode_rope_complete_on_dot = 0
@@ -239,3 +246,34 @@ nmap <Leader>r :echo @%\|RuboCop -a<CR>
 au BufRead,BufNewFile Guardfile setfiletype ruby
 " remove tab chars
 :set nolist
+
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                            \ 'active_filetypes': ['javascript', 'js'],
+                            \ 'passive_filetypes': [] }
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
+
+".autoformat
+
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+set autoindent

@@ -2,6 +2,7 @@
  email = lfender6445@gmail.com
  name = Luke Fender
  user = lfender6445
+	signingkey = 41808CE3
 
 [alias]
   # short aliases
@@ -127,7 +128,7 @@
 	autosetuprebase = always
 	autosetupmerge = always
 [rerere]
-	enabled = 1
+	enabled = true
 [credential]
 	helper = osxkeychain
 [url "git://"]
@@ -143,3 +144,5 @@
 	smudge = git-media-smudge %f
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[merge]
+	tool = opendiff
