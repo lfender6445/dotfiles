@@ -151,3 +151,4 @@ alias zshrc="vim ~/.zshrc"
 alias ios="open /Applications/Xcode.app/Contents/Applications/iOS\ Simulator.app"
 alias reload!='. ~/.zshrc'
 alias cdseo='cd ~/source/seo_tool'
+alias ud='gcm;gpr;gc -;git rebase master'

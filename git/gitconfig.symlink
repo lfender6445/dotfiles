@@ -122,6 +122,7 @@
   whitespace = cr-at-eol
   editor = /usr/local/bin/mvim -v
   pager = less -x4
+	trustctime = false
 [push]
 	default = current
 [branch]
