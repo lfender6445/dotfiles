@@ -18,8 +18,8 @@ set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
 
 set clipboard=unnamed " allow visual copy from vim to clipboardand paste from system
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
+" vmap <C-x> :!pbcopy<CR>
+" vmap <C-c> :w !pbcopy<CR><CR>
 
 au FileChangedShell * echo "Warning: File changed on disk" " Detect file changes
 
@@ -277,4 +277,3 @@ set autoindent
 set tabstop=2
 set smartindent
 set tabstop=2 shiftwidth=2 expandtab
-

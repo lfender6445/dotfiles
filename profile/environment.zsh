@@ -8,8 +8,8 @@ if [[ -e /usr/local/opt/chruby/share ]]; then
     chruby $(cat ~/.ruby-version)
   fi
 fi
-
-PATH=/usr/local/share/npm/bin:$PATH
+PIP_PATH=~/Library/Python/3.5/bin
+PATH=/usr/local/share/npm/bin:$PIP_PATH:$PATH
 
 export NODE_PATH='/usr/local/lib/node_modules'
 #export JAVA_HOME='/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home'

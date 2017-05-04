@@ -1,3 +1,4 @@
+alias e='emacs'
 alias v='/usr/local/bin/mvim -v'
 alias vim='/usr/local/bin/mvim -v'
 alias vimrc='vim ~/.vimrc'
@@ -5,26 +6,21 @@ alias vimrc='vim ~/.vimrc'
 alias @deploy='ssh -t bot "sudo su - deploy"'
 alias @honey='ssh honey'
 alias @mango='ssh mango'
+
 alias abort="git unstage;gca;gcf;git rebase --abort;"
-alias abort="git unstage;gca;gcf;git rebase --abort;"
+
 alias active="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias aliases="vim ~/source/dotfiles/profile/aliases.zsh"
 alias b="bundle"
 alias be="bundle exec"
-alias be="bundle exec"
 alias bi="b install --path vendor"
 alias binc="bundle install --no-cache"
 alias binit="bi && bp"
-alias bl="bundle list"
-alias bomb="rm -rf vendor/javascripts;bower install;gcbw"
-alias bp="bundle package"
-alias br='bundle exec rspec'
-alias brs='bundle exec rspec'
 alias bu="bundle update"
 alias cat='ccat'
+
 alias cdag="cd ~/source/ag"
 alias cdagm="cd ~/source/ag_mobile_api"
-alias cdagm='cd ~/source/ag_mobile_api'
 alias cdags="cd ~/source/ag.js"
 alias cdb='cd ~/source/wp_blog_themes/Ag_Blog_Beta'
 alias cdch='cd ~/source/christophestogo'
@@ -69,12 +65,12 @@ alias cdtb="cd ~/source/theme_bandit"
 alias cdtmc='cd ~/source/testmycss'
 alias cdtr="cd ~/source/trex"
 alias cdz="cd ~/source/zutron"
-alias ci='curl http://ag-web-01.ci.nor.primedia.com/ops/env/environment.cfg'
+alias cdseo='cd ~/source/seo_tool'
+
 alias commiters="git shortlog -sn"
-alias default_shell='chsh -s /bin/zsh'
+
 alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
-alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
-alias elogin="curl 'http://170.140.98.93/cgi-bin/login' -H 'Pragma: no-cache' -H 'Origin: http://captive.web.emory.edu' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.8' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Cache-Control: no-cache' -H 'Referer: http://captive.web.emory.edu/hcp.php?cmd=login&switchip=170.140.98.93&mac=34:36:3b:cc:f0:d2&ip=172.24.68.194&essid=EHC%20Guest&url=http%3A%2F%2Fwww%2Ereddit%2Ecom%2F' -H 'Connection: keep-alive' --data 'email=nadamas%40gmail.com&Login=Log+In' --compressed"
+
 alias g="git"
 alias gaa="git add ."
 alias gb="git branch"
@@ -89,9 +85,7 @@ alias gcn="git commit -S -m"
 alias gcq="git co qa"
 alias gd="git diff"
 alias gdc="git diff --cached"
-alias gemini='gem env; gem env gemdir'
-alias gemm='bundle show'
-alias gg='git show --pretty="format:" --name-only '
+
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glast="git diff HEAD~1 --stat"
 alias gls="gl --name-status"
@@ -99,33 +93,28 @@ alias gmd="git merge dev"
 alias gmm="git merge master"
 alias gmt="git mergetool -t opendiff"
 alias gpf="git push fork"
-alias gphm="git push heroku master"
 alias gpo="git push origin"
 alias gpr="git pull --rebase"
-alias gpt="git push --tags"
 alias gs="git stash"
 alias gsh="git show HEAD"
 alias gsp="git stash pop"
 alias gstory="git rev-parse --abbrev-ref HEAD | egrep -o '\d+'| head -n 1 | tr -d '\n' | pbcopy"
 alias gtrack='git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)'
-alias history='history 25'
+
 alias hosts='sudo vim /etc/hosts'
 alias htd='cd /Applications/MAMP/htdocs/'
 alias ip='ifconfig|grep inet|grep broadcast'
-alias jbstart='/usr/local/Cellar/jboss-as/7.1.1.Final/libexec/bin/standalone.sh'
-alias l='gl'
-alias lock="less Gemfile.lock"
-alias lock="less Gemfile.lock"
-alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias logst='logstash -f /usr/local/Cellar/logstash/1.4.1/logstash-simple.conf'
 alias ls="ls -a"
 alias mleak='tail -f /var/log/system.log'
+
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias nameserver="cat /etc/resolv.conf"
 alias ngconf='cd /usr/local/etc/nginx/sites; vim .'
 alias orig="find ./ -regex '.*\.\(orig\)'"
 alias os="cat /etc/*-release"
 alias pgconf="vim /var/lib/pgsql/9.4/data/pg_hba.conf"
+
 alias pgs="pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start"
 alias pgst="pg_ctl -D /usr/local/var/postgres/ stop -m 'fast'"
 alias qa='curl http://ag-web-01.qa.nor.primedia.com/ops/env/environment.cfg'
@@ -133,22 +122,24 @@ alias qac='curl http://ag-web-01.qa.nor.primedia.com/ops/env/environment.cfg|pbc
 alias readme="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
 alias readm="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
 alias rd="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
-alias readme="less README.md"
-alias remove_all_example='find . -name "*.map" -exec rm -rf {} \;'
+alias rdm="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
+
 alias rprcheck='be rspec spec;rubocop;coffeelint app/assets/javascripts/*'
 alias rubocop='rubocop --format simple'
 alias s="git status"
 alias sf='find . -type f|grep'
-alias sprcheck='rt;rubocop;coffeelint app/assets/coffee/*'
-alias sr='idg setup-repos'
+
 alias src="source ~/.zshrc"
 alias ss='idg start services'
 alias sshconfig='vim ~/.ssh/config'
-alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
-alias start_postgres='postgres -D /usr/local/var/postgres'
 alias wrk='idg setup-repos; idg stop;idg start services'
 alias zshrc="vim ~/.zshrc"
-alias ios="open /Applications/Xcode.app/Contents/Applications/iOS\ Simulator.app"
-alias reload!='. ~/.zshrc'
-alias cdseo='cd ~/source/seo_tool'
+
 alias ud='gcm;gpr;gc -;git rebase master'
+alias vmubuntu='VBoxHeadless -s "Ubuntu"'
+alias checkssl="echo | openssl s_client -connect 127.0.0.1:443 2>/dev/null | openssl x509 -noout -dates"
+
+alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
+alias start_postgres='postgres -D /usr/local/var/postgres'
+
+alias remove_all_example='find . -name "*.map" -exec rm -rf {} \;'
