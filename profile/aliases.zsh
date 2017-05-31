@@ -143,3 +143,7 @@ alias start_influx='influxdb -config=/usr/local/etc/influxdb.conf'
 alias start_postgres='postgres -D /usr/local/var/postgres'
 
 alias remove_all_example='find . -name "*.map" -exec rm -rf {} \;'
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
