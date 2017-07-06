@@ -70,7 +70,7 @@ ruby_now() {
 }
 
 PROMPT="
-%{$terminfo[bold]$fg[blue]%}${ssh_connect}%{$reset_color%}%{$terminfo[bold]$fg[green]%}%${current_dir}%{$reset_color%} ${git_b} $(ruby_now)\
+%{$terminfo[bold]$fg[blue]%}${ssh_connect}%{$reset_color%}%{$terminfo[bold]$fg[green]%}%${current_dir}%{$reset_color%} ${git_b}\
 
 %{$terminfo[bold]$fg[red]%}${prompt_symbol} %{$reset_color%}"
 

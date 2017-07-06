@@ -19,5 +19,5 @@ function ruby_now() {
   echo $(chruby | grep '*' | cut -d' ' -f3 | cut -d'-' -f 2,3)
 }
 
-PROMPT='%{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info) %{$fg_bold[cyan]%}$(ruby_now)%{$reset_color%} %{$fg[green]%}
+PROMPT='%{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info) %{$fg_bold[cyan]%}%{$reset_color%} %{$fg[green]%}
 %_$(prompt_char)%{$reset_color%} '

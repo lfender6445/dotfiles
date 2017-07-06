@@ -135,7 +135,7 @@ alias sshconfig='vim ~/.ssh/config'
 alias wrk='idg setup-repos; idg stop;idg start services'
 alias zshrc="vim ~/.zshrc"
 
-alias ud='gcm;gpr;gc -;git rebase master'
+alias ud='gpr;gcm;gpr;gc -;git rebase master'
 alias vmubuntu='VBoxHeadless -s "Ubuntu"'
 alias checkssl="echo | openssl s_client -connect 127.0.0.1:443 2>/dev/null | openssl x509 -noout -dates"
 
@@ -147,3 +147,19 @@ alias remove_all_example='find . -name "*.map" -exec rm -rf {} \;'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+
+function file_replace() {
+  for file in $(find . -name "$1*"); do
+    echo "matching: $file"
+    mv $file $(echo "$file" | sed "s/$1/$2/");
+  done
+}
+
+
+function replace() {
+  ag -l $1 | xargs sed -i '' -e "s/$1/$2/g"
+}
+
+alias matchfilecontaining="find ./src/* -name 'filetomatch*' -exec grep -l stringToMatch {} +"
+alias y='yarn run '
+alias cdru='cd ~/source/react-ui'
