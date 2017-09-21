@@ -32,6 +32,7 @@ values."
    dotspacemacs-configuration-layers
    '(
      ruby
+     typescript
      yaml
      php
      osx
@@ -62,7 +63,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(sublimity)
+   dotspacemacs-additional-packages '(sublimity prettier-js)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -134,7 +135,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(junio
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -308,18 +309,18 @@ values."
   executes.
   This function is mostly useful for variables that need to be set
   before packages are loaded. If you are unsure, you should try in setting them in `dotspacemacs/user-config' first."
-  (setq-default dotspacemacs-themes '(sanityinc-tomorrow-night))
+  (setq-default dotspacemacs-themes '(junio))
 
 
-  (defun my/use-eslint-from-node-modules ()
-    (let* ((root (locate-dominating-file
-                  (or (buffer-file-name) default-directory)
-                  "node_modules"))
-           (eslint (and root
-                        (expand-file-name "node_modules/eslint/bin/eslint.js"
-                                          root))))
-      (when (and eslint (file-executable-p eslint))
-  (setq-local flycheck-javascript-eslint-executable eslint))))
+  ;; (defun my/use-eslint-from-node-modules ()
+  ;;   (let* ((root (locate-dominating-file
+  ;;                 (or (buffer-file-name) default-directory)
+  ;;                 "node_modules"))
+  ;;          (eslint (and root
+  ;;                       (expand-file-name "node_modules/eslint/bin/eslint.js"
+  ;;                                         root))))
+  ;;     (when (and eslint (file-executable-p eslint))
+  ;; (setq-local flycheck-javascript-eslint-executable eslint))))
   (setq js2-mode-show-strict-warnings nil) ; disable js2 warnings
 
   (defun my-setup-indent (n)
@@ -358,9 +359,9 @@ you should place your code here."
   (add-hook 'after-init-hook #'global-flycheck-mode)
 
   ;; disable jshint since we prefer eslint checking
-  (setq-default flycheck-disabled-checkers
-                (append flycheck-disabled-checkers
-                        '(javascript-jshint)))
+  ;; (setq-default flycheck-disabled-checkers
+  ;;               (append flycheck-disabled-checkers
+  ;;                       '(javascript-jshint)))
 
   ;; use eslint with web-mode for jsx files
   (flycheck-add-mode 'javascript-eslint 'web-mode)
@@ -410,6 +411,10 @@ you should place your code here."
   ;; (setq tab-always-indent 'complete)
   (setq-default indent-tabs-mode nil) ;; spaces instead of tabs
 
+  (defun dotspacemacs/layers ()
+    (dotspacemacs-configuration-layers '(spacemacs-prettier))
+    )
+
 
   ;;; runs eslint --fix on the current file after save
   ;;; alpha quality -- use at your own risk
@@ -424,16 +429,20 @@ you should place your code here."
     (eslint-fix-file)
     (revert-buffer t t))
 
-  (add-hook 'js2-mode-hook 'react-mode-hook
-    (lambda ()
-      (add-hook 'after-save-hook 'eslint-fix-file-and-revert)))
+  ; (add-hook 'js2-mode-hook 'react-mode-hook
+  ;   (lambda ()
+  ;     (add-hook 'after-save-hook 'eslint-fix-file-and-revert)))
+
+  ; (add-hook 'js2-mode-hook 'prettier-js-mode)
+  ; (add-hook 'web-mode-hook 'prettier-js-mode)
 
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-  (setq-default
-   dotspacemacs-configuration-layers
-   '((auto-completion :variables
-                      spacemacs-default-company-backends '(tern))))
+  ;;   (setq-default
+  ;;    dotspacemacs-configuration-layers
+  ;;    '((spacemacs-prettier
+  ;;       auto-completion :variables
+  ;;                       spacemacs-default-company-backends '(tern))))
 
   ;; (require 'sublimity)
   ;; (require 'sublimity-scroll)
@@ -456,7 +465,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (sublimity rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby yaml-mode orgit magit-gitflow evil-magit magit magit-popup smeargle helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit with-editor org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data dash-functional company-statistics auto-yasnippet ac-ispell auto-complete company-tern company xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl flycheck-pos-tip pos-tip flycheck web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode web-beautify tern livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg eval-sexp-fu highlight elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed ace-link ace-jump-helm-line helm helm-core popup undo-tree org-plus-contrib hydra evil-unimpaired f s dash async aggressive-indent adaptive-wrap ace-window avy)))
+    (prettier-js tide typescript-mode sublimity rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby yaml-mode orgit magit-gitflow evil-magit magit magit-popup smeargle helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit with-editor org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data dash-functional company-statistics auto-yasnippet ac-ispell auto-complete company-tern company xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl flycheck-pos-tip pos-tip flycheck web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode web-beautify tern livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg eval-sexp-fu highlight elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed ace-link ace-jump-helm-line helm helm-core popup undo-tree org-plus-contrib hydra evil-unimpaired f s dash async aggressive-indent adaptive-wrap ace-window avy)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

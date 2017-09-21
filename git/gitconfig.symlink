@@ -123,6 +123,7 @@
   editor = /usr/local/bin/mvim -v
   pager = less -x4
 	trustctime = false
+	excludesfile = /Users/lfender/.gitignore
 [push]
 	default = current
 [branch]

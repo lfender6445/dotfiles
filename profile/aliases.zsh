@@ -1,4 +1,5 @@
-alias e='emacs'
+alias e='echo -e "\033]50;SetProfile=Default\a" && emacs .; echo -e "\033]50;SetProfile=LF\a"'
+alias rt='echo -e "\033]50;SetProfile=LF\a"'
 alias v='/usr/local/bin/mvim -v'
 alias vim='/usr/local/bin/mvim -v'
 alias vimrc='vim ~/.vimrc'
@@ -150,16 +151,26 @@ alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 
 function file_replace() {
   for file in $(find . -name "$1*"); do
-    echo "matching: $file"
     mv $file $(echo "$file" | sed "s/$1/$2/");
   done
 }
 
-
-function replace() {
+function replace_text() {
   ag -l $1 | xargs sed -i '' -e "s/$1/$2/g"
 }
 
 alias matchfilecontaining="find ./src/* -name 'filetomatch*' -exec grep -l stringToMatch {} +"
 alias y='yarn run '
 alias cdru='cd ~/source/react-ui'
+alias cdh='cd ~/source/hive'
+alias cdra='cd ~/source/rent-js-api'
+alias cdjsa='cd ~/source/rent-js-api'
+alias cdrjs='cd ~/source/rent-js'
+alias cdlsc='cd ~/source/listing-service-client-js'
+alias my_remotes="git for-each-ref --format='%(committerdate)%09%(authorname)%09%(refname)' | sort -k5n -k2M -k3n -k4n | grep remotes | awk -F \"\t\" '{ printf \"%-32s %-27s %s\n\", $1, $2, $3 }' | grep -i luke"
+cd
+
+alias yt="yarn run test"
+alias yf="yarn run lint:fix"
+alias yd="yarn run dev"
+alias ys="yarn run start"
