@@ -102,7 +102,6 @@ Plug 'nono/vim-handlebars'
 Plug 'slim-template/vim-slim'
 Plug 'digitaltoad/vim-jade'
 Plug 'kchmck/vim-coffee-script'
-Plug 'https://github.com/rorymckinley/vim-rubyhash.git'
 
 " --- color scheme
 Plug 'lsdr/monokai'

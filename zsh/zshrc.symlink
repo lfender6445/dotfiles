@@ -4,6 +4,8 @@ export ZSH=$HOME/source/dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/source
 
+
+plugins=(rvm tmux git node archlinux aws npm bower colorize ssh-agent)
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -71,4 +73,4 @@ ANDROID_HOME=/usr/local/opt/android-sdk
 # source ~/source/dotfiles/zsh/common-functions.zsh
 # . /Users/lfender_mbp/torch/install/bin/torch-activate
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications --caskroom=/usr/local/Caskroom"
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"

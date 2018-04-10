@@ -1,4 +1,5 @@
-alias e='echo -e "\033]50;SetProfile=Default\a" && emacs .; echo -e "\033]50;SetProfile=LF\a"'
+# alias e='echo -e "\033]50;SetProfile=Default\a" && emacs .; echo -e "\033]50;SetProfile=LF\a"'
+alias e='emacs .;'
 alias rt='echo -e "\033]50;SetProfile=LF\a"'
 alias v='/usr/local/bin/mvim -v'
 alias vim='/usr/local/bin/mvim -v'
@@ -174,3 +175,10 @@ alias yt="yarn run test"
 alias yf="yarn run lint:fix"
 alias yd="yarn run dev"
 alias ys="yarn run start"
+
+# apple port forwarding
+# echo "
+# rdr pass inet proto tcp from any to any port 80 -> 127.0.0.1 port 9460
+# " | sudo pfctl -ef -
+
+# and from the mentioned article, to remove it, sudo pfctl -F all -f /etc/pf.conf, and to display your current port forwarding rules, sudo pfctl -s nat – Brad Parks Jan 17 '17 at 14:46
