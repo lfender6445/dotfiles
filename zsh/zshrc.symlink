@@ -3,7 +3,7 @@ export ZSH=$HOME/source/dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/source
-
+fpath=(/usr/local/Homebrew/completions/zsh/ /usr/local/share/zsh-completions $fpath)
 
 plugins=(rvm tmux git node archlinux aws npm bower colorize ssh-agent)
 # Stash your environment variables in ~/.localrc. This means they'll stay out
@@ -31,8 +31,7 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit && compinit
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
