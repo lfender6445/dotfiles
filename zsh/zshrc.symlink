@@ -71,5 +71,8 @@ ANDROID_HOME=/usr/local/opt/android-sdk
 
 # source ~/source/dotfiles/zsh/common-functions.zsh
 # . /Users/lfender_mbp/torch/install/bin/torch-activate
+
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
+eval "$(direnv hook zsh)"

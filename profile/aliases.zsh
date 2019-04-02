@@ -19,11 +19,12 @@ alias bi="b install --path vendor"
 alias binc="bundle install --no-cache"
 alias binit="bi && bp"
 alias bu="bundle update"
-alias cat='ccat'
+alias cat='bat'
 
 alias cdag="cd ~/source/ag"
 alias cdagm="cd ~/source/ag_mobile_api"
 alias cdags="cd ~/source/ag.js"
+alias cdaga="cd ~/source/ag-js-api"
 alias cdb='cd ~/source/wp_blog_themes/Ag_Blog_Beta'
 alias cdch='cd ~/source/christophestogo'
 alias cdd='cd ~/source/dotfiles'
@@ -137,7 +138,7 @@ alias sshconfig='vim ~/.ssh/config'
 alias wrk='idg setup-repos; idg stop;idg start services'
 alias zshrc="vim ~/.zshrc"
 
-alias ud='gpr;gcm;gpr;gc -;git rebase master'
+alias ud='gcm;gpr;gc -;git rebase master'
 alias vmubuntu='VBoxHeadless -s "Ubuntu"'
 alias checkssl="echo | openssl s_client -connect 127.0.0.1:443 2>/dev/null | openssl x509 -noout -dates"
 
@@ -172,9 +173,31 @@ alias my_remotes="git for-each-ref --format='%(committerdate)%09%(authorname)%09
 cd
 
 alias yt="yarn run test"
+alias yx="eslint --fix"
+alias ytj="yarn run test:jest"
+alias ytm="yarn run test:mocha"
 alias yf="yarn run lint:fix"
 alias yd="yarn run dev"
 alias ys="yarn run start"
+
+ct() {
+    curl -so /dev/null -w "\
+   namelookup:  %{time_namelookup}s\n\
+      connect:  %{time_connect}s\n\
+   appconnect:  %{time_appconnect}s\n\
+  pretransfer:  %{time_pretransfer}s\n\
+     redirect:  %{time_redirect}s\n\
+starttransfer:  %{time_starttransfer}s\n\
+-------------------------\n\
+        total:  %{time_total}s\n" "$@"
+}
+ttfb() {
+  curl -o /dev/null \
+       -H 'Cache-Control: no-cache' \
+       -s \
+       -w "Connect: %{time_connect} TTFB: %{time_starttransfer} Total time: %{time_total} \n" \
+       $1
+}
 
 # apple port forwarding
 # echo "
@@ -182,3 +205,6 @@ alias ys="yarn run start"
 # " | sudo pfctl -ef -
 
 # and from the mentioned article, to remove it, sudo pfctl -F all -f /etc/pf.conf, and to display your current port forwarding rules, sudo pfctl -s nat – Brad Parks Jan 17 '17 at 14:46
+alias gfc="git diff --name-only $(git merge-base master HEAD)"
+alias jira="echo 'https://rentpath.atlassian.net/browse/TIDE-'|pbcopy"
+

@@ -118,12 +118,12 @@
 	ui = true
 [core]
   autocrlf = input
-  ignorecase = false
   whitespace = cr-at-eol
   editor = /usr/local/bin/mvim -v
   pager = less -x4
 	trustctime = false
 	excludesfile = /Users/lfender/.gitignore
+	ignorecase = false
 [push]
 	default = current
 [branch]
